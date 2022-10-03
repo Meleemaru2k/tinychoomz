@@ -1,7 +1,7 @@
 export default class Choom {
-	private _id: number;
-	private careConditions: array<object>;
-	private equipped: {
+	readonly _id: number;
+	private careConditions: Array<object>;
+	private equipped?: {
 		weapon: object;
 		clothes: { head: object; upperBody: object; lowerBody: object };
 		cyberware: {
@@ -18,6 +18,8 @@ export default class Choom {
 
 	constructor() {
 		this._id = 0;
+		this.careConditions = [];
+		this.equipped = undefined;
 	}
 
 	public get id() {
