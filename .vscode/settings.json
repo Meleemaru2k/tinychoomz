@@ -1,0 +1,62 @@
+{
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.colorTheme": "FlatUI Dark",
+  "explorer.confirmDelete": false,
+  "workbench.editor.untitled.hint": "hidden",
+  "explorer.confirmDragAndDrop": false,
+  "workbench.startupEditor": "none",
+  "editor.comments.insertSpace": false,
+  "editor.dragAndDrop": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+      "source.fixAll": true
+  },
+  "editor.tabSize": 2,
+  "eslint.validate": [
+      "javascript",
+      "typescript",
+      "vue","svelte"
+  ],
+  "[vue]": {
+      //"editor.defaultFormatter": "johnsoncodehk.volar",
+      "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+      }
+  },
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      //"editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.eol": "\n",
+  "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[graphql]":{
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]":{
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[svelte]": {
+      "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "git.ignoreRebaseWarning": true,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "svelte.enable-ts-plugin": true,
+  "svelte.plugin.svelte.note-new-transformation": false,
+}
