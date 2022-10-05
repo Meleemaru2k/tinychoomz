@@ -1,38 +1,26 @@
-# create-svelte
+# The Idea in a nutshell
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Cyberpunk x Tamagotchi.
 
-## Creating a project
+Make it look and feel Cyberpunk, so we need to add some 3D Stuff! :)
+Make the "gameplay" simple yet diverse.
+Make it easy to extend.
 
-If you're seeing this, you've probably already done this step. Congrats!
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Roadmap
+- Get a proper codebase going
+- Implement actual (core)gameplay with mostly placeholder designs
+- Refactor time probably
+- Make 3D Models
+   - Either N-DS/PS1 Style 
+   - Or proper Models (polycount ala PS2/3)
+      - with baked normal maps
+      - PBR textures (all stylized)
+- Implement the 3D Stuff
+- Design a proper UI and UX
+   - Design the Page to "feel" Cyberpunk and make it immersive
+   - Menu madness probably
+- Refactor & Extend Gameplay/Systems
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
 
-## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

@@ -1,16 +1,16 @@
 export class Job {
-	id: string;
-	name: string;
-	description?: string;
-	sequences: Array<JobSequence>;
-	activeSequence: number;
-	rewards?: Array<any>;
+	readonly id: string;
+	readonly name: string;
+	readonly description?: string;
+	readonly sequences: Array<JobSequence>;
+	readonly activeSequence: number;
+	readonly rewards?: Array<any>;
 
 	constructor(
 		id: string,
 		name: string,
 		sequences: Array<JobSequence>,
-		config?: { description: string; rewards: Array<any>; activeSequence: 0 }
+		config: { description?: string; rewards?: Array<any>; activeSequence?: 0 }
 	) {
 		this.id = id;
 		this.name = name;

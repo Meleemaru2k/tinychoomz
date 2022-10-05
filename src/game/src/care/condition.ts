@@ -1,8 +1,10 @@
+import type { Consumable } from './consumable';
+
 export class Condition {
 	readonly id: number;
-	private _name: string;
-	private _description?: string;
-	private _duration?: number;
+	readonly name: string;
+	readonly description?: string;
+	readonly duration?: number;
 
 	constructor(
 		id: number,
@@ -10,36 +12,16 @@ export class Condition {
 		config?: { description?: string; duration?: number }
 	) {
 		this.id = id;
-		this._name = name;
-		this._description = config?.description;
-		this._duration = config?.duration;
+		this.name = name;
+		this.description = config?.description;
+		this.duration = config?.duration;
 	}
 
-	get name() {
-		return this._name;
-	}
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	public checkItemCanCure(cureItem: any) {
-		if (cureItem.curableConditions.includes(this.id)) {
+	public checkItemCanCure(consumable: Consumable) {
+		if (consumable.onConsume.conditionsToRemove.includes(this.id)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 }
-
-//export enum ConditionFlag {
-//	mental_healthy,
-//	mental_neutral,
-//	mental_sad,
-//	mental_depressed,
-//	body_poisoned,
-//	body_hungry,
-//	body_thirsty,
-//	body_bruised,
-//	body_bleeding,
-//	body_unconscious,
-//	cyberware_malfunction,
-//	cyberware_hacked,
-//	cyberware_virus
-//}
