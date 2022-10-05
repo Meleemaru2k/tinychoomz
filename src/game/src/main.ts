@@ -1,9 +1,7 @@
-import 'reflect-metadata';
-
-export default function game() {
+export function game() {
 	return null;
 }
 
-export function initDB() {
+export function init() {
 	return null;
 }
