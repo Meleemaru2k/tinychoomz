@@ -1,5 +1,6 @@
 export default class Attribute {
 	public readonly id: number;
+	public readonly type: PrimaryAttribut | SecondaryAttribute;
 	protected name: string;
 	protected description?: string;
 	protected maxLevelNormal: number;
@@ -9,6 +10,7 @@ export default class Attribute {
 
 	constructor(
 		id: number,
+		type: PrimaryAttribut | SecondaryAttribute,
 		name: string,
 		config: {
 			description?: string;
@@ -20,10 +22,29 @@ export default class Attribute {
 	) {
 		this.id = id;
 		this.name = name;
+		this.type = type;
 		this.description = config?.description;
 		this.maxLevelNormal = config.maxLevelNormal;
 		this.maxLevelOverdrive = config.maxLevelOverdrive;
 		this.maxLevelSpecialist = config.maxLevelSpecialist;
 		this.parentAttributes = config.parentAttributes ?? [];
 	}
+}
+
+export enum PrimaryAttribut {
+	INTELLIGENCE,
+	TECHNICAL,
+	BODY,
+	REFLEXES,
+	WILL,
+	COOL
+}
+
+export enum SecondaryAttribute {
+	HACKING,
+	MACHINES,
+	MELEE,
+	ACROBATICS,
+	INTEGRITY,
+	PERSUASIVENESS
 }
