@@ -50,17 +50,14 @@ export default class Choom {
 	}
 
 	private cureCondition(id: number) {
-		const conditionsToCure = this.careConditions.statusEffects.filter(
-			(x) => x.statusEffect.id === id
-		);
-		if (conditionsToCure) {
-			this.careConditions.statusEffects =
-				this.careConditions.statusEffects.filter(
-					(x) => x.statusEffect.id !== id
-				);
+		const conditionsCount = this.careConditions.statusEffects.length;
+		this.careConditions.statusEffects =
+			this.careConditions.statusEffects.filter((x) => x.statusEffect.id !== id);
+		if (this.careConditions.statusEffects.length !== conditionsCount) {
 			return true;
+		} else {
+			return false;
 		}
-		return false;
 	}
 
 	public equipItem(item: any) {

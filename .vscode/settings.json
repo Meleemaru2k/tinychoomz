@@ -17,7 +17,7 @@
   "eslint.validate": [
       "javascript",
       "typescript",
-      "vue","svelte"
+      "vue","svelte","json"
   ],
   "[vue]": {
       //"editor.defaultFormatter": "johnsoncodehk.volar",
@@ -34,7 +34,7 @@
   },
   "files.eol": "\n",
   "[json]": {
-      "editor.defaultFormatter": "vscode.json-language-features"
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[graphql]":{
       "editor.defaultFormatter": "esbenp.prettier-vscode"

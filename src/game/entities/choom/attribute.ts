@@ -1,16 +1,15 @@
 export default class Attribute {
-	public readonly id: number;
-	public readonly type: PrimaryAttribut | SecondaryAttribute;
-	protected name: string;
-	protected description?: string;
-	protected maxLevelNormal: number;
-	protected maxLevelSpecialist: number;
-	protected maxLevelOverdrive: number;
-	protected parentAttributes: Array<Attribute>;
+	readonly id: EAttribute;
+	readonly name: string;
+	readonly description?: string;
+	readonly maxLevelNormal: number;
+	readonly maxLevelSpecialist: number;
+	readonly maxLevelOverdrive: number;
+	readonly parentAttributes: Array<Attribute>;
+	readonly childtAttributes: Array<Attribute>;
 
 	constructor(
-		id: number,
-		type: PrimaryAttribut | SecondaryAttribute,
+		id: EAttribute,
 		name: string,
 		config: {
 			description?: string;
@@ -18,33 +17,33 @@ export default class Attribute {
 			maxLevelSpecialist: number;
 			maxLevelOverdrive: number;
 			parentAttributes?: Array<Attribute>;
+			childAttributes?: Array<Attribute>;
 		}
 	) {
 		this.id = id;
 		this.name = name;
-		this.type = type;
-		this.description = config?.description;
+		this.description = config.description;
 		this.maxLevelNormal = config.maxLevelNormal;
 		this.maxLevelOverdrive = config.maxLevelOverdrive;
 		this.maxLevelSpecialist = config.maxLevelSpecialist;
 		this.parentAttributes = config.parentAttributes ?? [];
+		this.childtAttributes = config.childAttributes ?? [];
 	}
 }
 
-export enum PrimaryAttribut {
-	INTELLIGENCE,
-	TECHNICAL,
-	BODY,
-	REFLEXES,
-	WILL,
-	COOL
-}
-
-export enum SecondaryAttribute {
-	HACKING,
-	MACHINES,
-	MELEE,
-	ACROBATICS,
-	INTEGRITY,
-	PERSUASIVENESS
+export enum EAttribute {
+	// Primary Attributes
+	INTELLIGENCE = 'Intelligence',
+	TECHNICAL = 'Technical',
+	BODY = 'Body',
+	REFLEXES = 'Reflexes',
+	WILL = 'Will',
+	COOL = 'Cool',
+	// Child Attributes
+	HACKING = 'Hacking',
+	MACHINES = 'Machines',
+	MELEE = 'Melee',
+	ACROBATICS = 'Acrobatics',
+	INTEGRITY = 'Integrity',
+	PERSUASIVENESS = 'Persuasiveness'
 }
