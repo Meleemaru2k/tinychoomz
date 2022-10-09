@@ -1,12 +1,17 @@
 import type { Consumable } from '../care/consumable';
 import type { StatusEffect } from '../care/statusEffect';
+import type { Attribute } from './attribute';
 export default class Choom {
 	readonly id: number;
-	readonly careConditions = {
+	private attributes = [] as Array<{ attribute: Attribute; exp: number }>;
+	private careConditions = {
 		health: 100,
 		survival: { hunger: 100, thirst: 100 },
 		mental: { mood: 100, psychosis: 100 },
-		statusEffects: [] as Array<{ statusEffect: StatusEffect; duration: number }>
+		statusEffects: [] as Array<{
+			statusEffect: StatusEffect;
+			durationLeft: number;
+		}>
 	};
 	private equipped = {
 		weapon: undefined,
@@ -36,6 +41,10 @@ export default class Choom {
 
 	constructor() {
 		this.id = 0;
+	}
+
+	public registerAttributes() {
+		return null;
 	}
 
 	public useConsumable(consumable: Consumable) {

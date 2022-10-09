@@ -1,4 +1,4 @@
-export default class Attribute {
+export class Attribute {
 	readonly id: EAttribute;
 	readonly name: string;
 	readonly description?: string;
@@ -6,8 +6,8 @@ export default class Attribute {
 	readonly maxLevelNormal: number;
 	readonly maxLevelSpecialist: number;
 	readonly maxLevelOverdrive: number;
-	readonly parentAttributes: Array<Attribute>;
-	readonly childtAttributes: Array<Attribute>;
+	readonly parentAttributes: Map<EAttribute, Attribute>;
+	readonly childtAttributes: Map<EAttribute, Attribute>;
 
 	constructor(
 		id: EAttribute,
@@ -15,25 +15,25 @@ export default class Attribute {
 		config: {
 			description?: string;
 			maxLevelNormal: number;
-			maxLevelSpecialist: number;
-			maxLevelOverdrive: number;
-			parentAttributes?: Array<Attribute>;
-			childAttributes?: Array<Attribute>;
+			maxLevelSpecialist?: number;
+			maxLevelOverdrive?: number;
+			parentAttributes?: Map<EAttribute, Attribute>;
+			childAttributes?: Map<EAttribute, Attribute>;
 		}
 	) {
 		this.id = id;
 		this.name = name;
 		this.description = config.description;
 		this.maxLevelNormal = config.maxLevelNormal;
-		this.maxLevelOverdrive = config.maxLevelOverdrive;
-		this.maxLevelSpecialist = config.maxLevelSpecialist;
-		this.parentAttributes = config.parentAttributes ?? [];
-		this.childtAttributes = config.childAttributes ?? [];
+		this.maxLevelOverdrive = config.maxLevelOverdrive ?? this.maxLevelNormal;
+		this.maxLevelSpecialist = config.maxLevelSpecialist ?? this.maxLevelNormal;
+		this.parentAttributes = config.parentAttributes ?? new Map();
+		this.childtAttributes = config.childAttributes ?? new Map();
 
-		if (this.parentAttributes.length === 0) {
-			this.expNeededPerLevel = expPerLevel_Primary;
+		if (this.parentAttributes.size === 0) {
+			this.expNeededPerLevel = expPerLevel_default_Primary;
 		} else {
-			this.expNeededPerLevel = expPerLevel_Secondary;
+			this.expNeededPerLevel = expPerLevel_default_Secondary;
 		}
 	}
 }
@@ -41,22 +41,22 @@ export default class Attribute {
  * @Note
  * 1 primary exp = 1 child attribute levelup
  */
-export const expPerLevel_Primary = [0, 1, 2, 2, 4];
-export const expPerLevel_Secondary = [0, 10, 30, 90, 200];
+export const expPerLevel_default_Primary = [0, 1, 2, 2, 4];
+export const expPerLevel_default_Secondary = [0, 10, 30, 90, 200];
 
 export enum EAttribute {
 	// Primary Attributes
-	INTELLIGENCE = 'Intelligence',
-	TECHNICAL = 'Technical',
-	BODY = 'Body',
-	REFLEXES = 'Reflexes',
-	WILL = 'Will',
-	COOL = 'Cool',
-	// Child Attributes
-	HACKING = 'Hacking',
-	MACHINES = 'Machines',
-	MELEE = 'Melee',
-	ACROBATICS = 'Acrobatics',
-	INTEGRITY = 'Integrity',
-	PERSUASIVENESS = 'Persuasiveness'
+	INTELLIGENCE = 'intelligence',
+	TECHNICAL = 'technical',
+	BODY = 'body',
+	REFLEXES = 'reflexes',
+	WILL = 'will',
+	COOL = 'cool',
+	// Secondary Attributes
+	HACKING = 'hacking',
+	MACHINES = 'machines',
+	MELEE = 'melee',
+	ACROBATICS = 'acrobatics',
+	INTEGRITY = 'integrity',
+	PERSUASIVENESS = 'persuasiveness'
 }
