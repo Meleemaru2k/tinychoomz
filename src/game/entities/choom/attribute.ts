@@ -2,12 +2,12 @@ export class Attribute {
 	readonly id: EAttribute;
 	readonly name: string;
 	readonly description?: string;
-	readonly expNeededPerLevel: Array<number>;
+	private expNeededPerLevel: Array<number>;
 	readonly maxLevelNormal: number;
 	readonly maxLevelSpecialist: number;
 	readonly maxLevelOverdrive: number;
-	readonly parentAttributes: Map<EAttribute, Attribute>;
-	readonly childtAttributes: Map<EAttribute, Attribute>;
+	private parentAttributes: Map<EAttribute, Attribute>;
+	private childtAttributes: Map<EAttribute, Attribute>;
 
 	constructor(
 		id: EAttribute,
