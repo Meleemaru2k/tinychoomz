@@ -1,9 +1,12 @@
 import type { Consumable } from '../care/consumable';
 import type { StatusEffect } from '../care/statusEffect';
-import type { Attribute } from './attribute';
+import type { EAttribute, Attribute } from './attribute';
 export default class Choom {
 	readonly id: number;
-	private attributes = [] as Array<{ attribute: Attribute; exp: number }>;
+	private attributes = new Map<
+		EAttribute,
+		{ attribute: Attribute; exp: number }
+	>();
 	private careConditions = {
 		health: 100,
 		survival: { hunger: 100, thirst: 100 },
@@ -39,8 +42,8 @@ export default class Choom {
 		}
 	};
 
-	constructor() {
-		this.id = 0;
+	constructor(id: number) {
+		this.id = id;
 	}
 
 	public registerAttributes() {
