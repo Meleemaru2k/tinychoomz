@@ -6,8 +6,8 @@ export class Attribute {
 	readonly maxLevelNormal: number;
 	readonly maxLevelSpecialist: number;
 	readonly maxLevelOverdrive: number;
-	private parentAttributes: Map<EAttribute, Attribute>;
-	private childtAttributes: Map<EAttribute, Attribute>;
+	readonly parentAttributes: Map<EAttribute, Attribute>;
+	readonly childtAttributes: Map<EAttribute, Attribute>;
 
 	constructor(
 		id: EAttribute,
